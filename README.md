@@ -1,5 +1,6 @@
-#SBURB Web Client
-####An emulation of the SBURB Game from Homestuck in Browser.
+SBURB Web Client
+
+An emulation of the SBURB Game from Homestuck in Browser.
 
 
 This is an early version of a SBURB simulator. It has basic functions currently like:
@@ -20,7 +21,7 @@ Chrome doesn't like it because Chrome likes be special with it's autoplay functi
 
 Anyway...
 
-## How to use
+How to use:
 
 Download the release, extract, and click on "index.html".  It should just load for you.
 
