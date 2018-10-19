@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+
+<HTML lang="en" class="site">
+
+<head>
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<meta charset="utf-8">
+	<title> Sburb </title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<Body class="main" id="body">
+	<audio id="menutheme" loop> <!-- I use the SBURB OST Menu theme for this!  Replace menu.XXX with your own location!-->
+		<source src="menu.mp3" type="audio/mpeg">
+		<source src="menu.wav" type="audio/wav">
+		<source src="menu.ogg" type="audio/ogg">
+	</audio>
+	<div id="videocontainer" class="videocontainer"> <!-- NOTE:  This is the Sburb loading screen.  You can find it on youtube and just rip it, however i reccomend a 1920x1080 version if you can locate it, i made mine using premier pro-->
+		<video id="loading" autoplay playsinline>
+			<source src="Enter.mp4" type="video/mp4">
+			<source src="Enter.webm" type="video/webm">
+			<source src="Enter.ogv" type="video/ogv">
+			
+		</video>
+		<Script src="js1.js"></Script>
+	</div>
+	<div class="logocontainer" id="logocontainer"><img id="logo" src="logo.png"></img></div>
+	<div id="mainmenu" class="mainmenu">
+		<img id="mainmenulogo" src="mainmenulogo.png">
+		<br>
+		<button class="menubuttons" id="menubuttons" onmouseover="buttonover()" onmouseout="buttonoffer()" onclick="hostclient()">Launch Host Client</button><br>
+		<button class="menubuttons" id="menubuttons2" onmouseover="buttonover2()" onmouseout="buttonoffer2()" onclick="hostserver()">Connect to Client</button><br>
+		<button class="menubuttons" id="menubuttons3" onmouseover="buttonover3()" onmouseout="buttonoffer3()" onclick="options()">Options</button><br>
+		<button class="menubuttons" id="menubuttons4" onmouseover="buttonover4()" onmouseout="buttonoffer4()" onclick="credits()"> Credits</button>
+		
+	</div>
+	
+	<div class="hostServer" id="Serverdiv">
+	
+		<div class="menublock">
+			<div class="serverconsole"> 
+				<p class="servertext" id="servertextalpha"> Sburb Server version 0.0.1<br><br> &copy; SKAIANET SYSTEMS INCORPERATED, ALL RIGHTS RESERVED,<br><br> SBURB client is running. <br><br> Awaiting connection...</p><p class="error" id="servererror"> ERROR 413-612: Could not establish connection to Skaianet. Please check your internet connection.</p>
+			</div>
+				<button class="return" id="return" onclick="returntomenu()"> Return to Menu</button>
+		</div>
+	
+	</div>
+	
+	<div class="hostclient" id="Clientdiv">
+	
+		<Div id="sburbmenutop" onmouseenter="topbarhover()" onmouseleave="topbarunhover()">
+			<div id="topbarmenu">
+			<button id="build"><img class="topmenubutton" id="buildbutton" src="menubuttons/buildgreen.png"></button>
+			<button id="revise"><img class="topmenubutton" id="revisebutton" src="menubuttons/revisegreen.png"></button>
+			<button id="deploy"><img class="topmenubutton" id="deploybutton" src="menubuttons/deploygreen.png"></button>
+			<button id="phernreg"><img class="topmenubutton" src="menubuttons/phernreg.png"></button>
+			<button id="grist"><img class="topmenubutton" src="menubuttons/grist.png"></button>
+			<button id="atheneum"><img class="topmenubutton" src="menubuttons/atheneum.png"></button>
+			<button id="alchemise"><img class="topmenubutton" src="menubuttons/alchemise.png"></button>
+			</div>
+		</div>
+		<Div id="sburbmenuside">
+			
+			<div id="arrows">
+			<button id="buttonup"><img id="arrowup" src="menubuttons/arrowgreen.png"></button>
+			<button id="buttondown"><img id="arrowdown" src="menubuttons/arrowgreen.png"></button>
+			<button id="buttonright"><img id="arrowright" src="menubuttons/arrowgreen.png"></button>
+			<button id="buttonleft"><img id="arrowleft" src="menubuttons/arrowgreen.png"></button>
+			<button id="buttonmiddle"><img id="centralbutton" src="menubuttons/centralgreen.png"></button>
+			</div>
+			
+			<div id="f2">
+			<button id="close" onclick="returnsburb()"><img id="closebutton" src="menubuttons/closegreen.png"></button>
+			<button id="save"><img id="savebutton" src="menubuttons/savegreen.png"></button>
+			<button id="open"><img id="openbutton" src="menubuttons/opengreen.png"></button>
+			</div>
+			
+			<button id="zoom"><img id="zoombutton" src="menubuttons/zoomgreen.png"></button>
+			<button id="undo"><img id="undobutton" src="menubuttons/undo.png"></button>
+			<button id="redo"><img id="redobutton" src="menubuttons/redo.png"></button>
+			
+		<div id="spiroholder">
+		
+		<img id="spiro" src="slider.png">
+		</div>
+		</div>
+		<div id="livestream">
+			<img src="betaview.png" id="sburbuser">
+		</div>
+	
+	</div>
+	
+	<div class="options" id="options">
+	
+		<div class="menublock">
+		<h1 class="blocktitle"> Options </h1>
+		<h2 class="settingdescriptor"> Volume:</h2> <input type="range" min="1" max="100" value="100" class="slider" id="volume" oninput="volume(this.value)"><br><br>
+		<h2 class="settingdescriptor"> Music:</h2><form id="musicvalue"> <input type="radio" value="True" name="volume" checked onclick="menumusic(this.value)" autocomplete="off">On<br><input type="radio" value="False" name="volume" onclick="menumusic(this.value)" autocomplete="off"> Off </form></br></br></br>
+		<h2 class="settingdescriptor"> Alpha Mode:</h2><form id="alphakids"><input type="Radio" name="alphakids" value="True" onclick="alpha(this.value) " autocomplete="off">On</br><input type="Radio" name="alphakids" value="False" onclick="alpha(this.value)" autocomplete="off" checked> Off </form>
+		<button class="return" id="return" onclick="returntomenu()"> Return to Menu</button>
+		
+		</div>
+	
+	</div>
+	
+	<div class="credits" id="credits">
+		<div class="menublock">
+		<h1 class="blocktitle"> Credits </h1><div class="skaianetholder"><img id="skaianetlogo" src="Skaianet.png"></div><p class="gamename" id="gameversion"> SBURB BETA 1.0.0</P><p class="creditstext" id="gamecredittext">Created by Skaianet Games Division <br><br> Special thanks to R.Lalonde for contributions on Server Infrastructure<br><br> Thank you to the dedication and patience of our fans!<br><br> This game is dedicated to the late Jake Harley, CEO of Skaianet, founder of the SBURB project.</p>
+		<button class="return" id="return" onclick="returntomenu()"> Return to Menu</button>
+		</div>
+	</div>
+</Body>
+</html>
